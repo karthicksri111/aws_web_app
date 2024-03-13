@@ -1,12 +1,12 @@
 provider "aws" {
   region         = var.region
   assume_role {
-    role_arn     = "arn:aws:iam::${local.account_id):role/Terraform_Admin_User" 
+    role_arn     = "arn:aws:iam::${local.account_id}:role/Terraform_Admin_User" 
 	}
 }
 
 resource "aws_vpc" "vpc1" {
-  cidr_block       = var.vpc_cidr
+  cidr_block       = vars.vpc_cidr
   instance_tenancy = "default"
   tags = {
     Name = "vpc1"
