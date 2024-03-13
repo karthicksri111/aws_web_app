@@ -1,0 +1,14 @@
+#!/bin/bash
+
+str=$1
+
+sudo sed -i "10i\    <p>${str}</p>" /var/www/html/index.html
+
+if [ $? -eq 0 ]; then
+        echo "Success!"
+        exit 0
+else
+        echo "Failure!"
+        exit 1
+fi
+
