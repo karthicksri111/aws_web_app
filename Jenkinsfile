@@ -9,17 +9,17 @@ pipeline {
         }
         stage('Init') {
             steps {
-                sh ("terraform init -reconfigure")
+                sh ("cd base && terraform init -reconfigure")
             }
         }
         stage('Plan') {
             steps{
-                sh ("terraform plan")
+                sh ("cd base && terraform plan")
             }
         }
         stage('Action') {
             steps{
-                sh ("terraform apply --auto-approve")
+                sh ("cd base && terraform apply --auto-approve")
             }
         }
     }
