@@ -17,6 +17,7 @@ resource "aws_internet_gateway" "igw1" {
 resource "aws_subnet" "subnet_a" {
   vpc_id     = aws_vpc.vpc1.id
   cidr_block = var.subnet_a_cidr
+  availability_zone = "us-east-1a"
     tags = {
     Name = "subnet_a"
   }
@@ -24,6 +25,7 @@ resource "aws_subnet" "subnet_a" {
 resource "aws_subnet" "subnet_b" {
   vpc_id     = aws_vpc.vpc1.id
   cidr_block = var.subnet_b_cidr
+  availability_zone = "us-east-1a"
       tags = {
     Name = "subnet_b"
   }
@@ -31,6 +33,7 @@ resource "aws_subnet" "subnet_b" {
 resource "aws_subnet" "subnet_c" {
   vpc_id     = aws_vpc.vpc1.id
   cidr_block = var.subnet_c_cidr
+  availability_zone = "us-east-1b"
       tags = {
     Name = "subnet_c"
   }
@@ -38,6 +41,7 @@ resource "aws_subnet" "subnet_c" {
 resource "aws_subnet" "subnet_d" {
   vpc_id     = aws_vpc.vpc1.id
   cidr_block = var.subnet_d_cidr
+  availability_zone = "us-east-1b"
       tags = {
     Name = "subnet_d"
   }
@@ -64,7 +68,7 @@ resource "aws_eip" "eip1" {
 
 resource "aws_nat_gateway" "ngw1" {
   allocation_id = aws_eip.eip1.id
-  subnet_id = aws_subnet.subnet_b.id
+  subnet_id = aws_subnet.subnet_a.id
       tags = {
     Name = "ngw1"
   }

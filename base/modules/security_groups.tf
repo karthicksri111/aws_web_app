@@ -1,6 +1,7 @@
 
 resource "aws_security_group" "SG1" {
   name = "SG1"
+  vpc_id = aws_vpc.vpc1.id
     ingress {
     from_port   = 0
     to_port     = 65535
@@ -25,6 +26,7 @@ resource "aws_security_group" "SG1" {
 
 resource "aws_security_group" "SG2" {
   name = "SG2"
+  vpc_id = aws_vpc.vpc1.id
     ingress {
     from_port   = 0
     to_port     = 65535
